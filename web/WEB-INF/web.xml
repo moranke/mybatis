@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+<!--查询-->
+    <servlet>
+        <servlet-name>ListServlet</servlet-name>
+        <servlet-class>control.ListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListServlet</servlet-name>
+        <url-pattern>/list.action</url-pattern>
+    </servlet-mapping>
+
+<!--单个删除-->
+    <servlet>
+        <servlet-name>deleteMessageByIdServlet</servlet-name>
+        <servlet-class>control.deleteMessageByIdServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deleteMessageByIdServlet</servlet-name>
+        <url-pattern>/deleteMessageById.action</url-pattern>
+    </servlet-mapping>
+
+    <!--批量删除-->
+    <servlet>
+        <servlet-name>deleteMessageBatchServlet</servlet-name>
+        <servlet-class>control.deleteMessageBatchServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deleteMessageBatchServlet</servlet-name>
+        <url-pattern>/deleteMessageBatch.action</url-pattern>
+    </servlet-mapping>
+
+    <!--wechat-->
+    <servlet>
+        <servlet-name>WechatServlet</servlet-name>
+        <servlet-class>control.WechatServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WechatServlet</servlet-name>
+        <url-pattern>/Wechat.action</url-pattern>
+    </servlet-mapping>
+
+</web-app>

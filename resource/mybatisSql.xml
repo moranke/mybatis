@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--//配置文件名称，区分配置文件-->
+<mapper namespace="Message">
+
+    <!--数据库表和实体类的映射关系-->
+    <parameterMap id="parameterMap" type="entity.Message"></parameterMap>
+    <resultMap id="MessageMap" type="entity.Message">
+        <!--主键可以使用id标签-->
+        <id property="id" column="id"/>
+        <result property="command" column="command"/>
+        <result property="description" column=""/>
+        <result property="content" column="content"/>
+    </resultMap>
+    <!--//统一配置sql查询字段，需要时通过include>refid引入-->
+    <sql id="messageSql">
+        <trim suffixOverrides=",">
+            m.id,
+            m.command,
+            m.description,
+            m.content,
+        </trim>
+    </sql>
+
+    <!--sql语句,同一配置文件namespace下的id不能重复-->
+    <!--查询-->
+    <select id="getMessage" parameterType="entity.Message" resultMap="MessageMap">
+        select
+        <include refid="messageSql"></include>
+        from message m
+        where 1=1
+        <if test="command != null and !&quot;&quot;.equals(command.trim())">and m.command=#{command}</if>
+        <if test="description != null and !&quot;&quot;.equals(description.trim())">and m.description like '%'
+            #{description} '%'
+        </if>
+    </select>
+
+    <!--单个删除-->
+    <delete id="deleteMessageById" parameterType="int">
+          delete from message where id=#{_parameter}
+    </delete>
+
+    <!--批量删除-->
+    <delete id="deleteMessageBatch" parameterType="java.util.List">
+        delete from message where id in
+        (
+        <foreach collection="list" item="item" separator=",">
+            #{item}
+        </foreach>
+        )
+    </delete>
+
+</mapper>
