@@ -88,7 +88,7 @@
 <script type="text/javascript">
     //:eq
     //选择单个
-    $(".aaron:eq(2)").css("border", "3px groove blue");
+    $(".aaron:eq(2)").css("border", "3px groove red");
 </script>
 
 <script type="text/javascript">
@@ -109,7 +109,7 @@
         <p>Aaron</p>
     </div>
     <div>
-        <input type="checkbox" name="b" />
+        <input type="checkbox" name="b"  checked="checked" />
         <p>慕课</p>
     </div>
     <div>
