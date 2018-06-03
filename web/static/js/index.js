@@ -8,7 +8,9 @@ function getMore() {
         return;
     }else
     {
-        alert(content);
+
         var request = new XMLHttpRequest();
+        // alert(request);
+        var url="search?keyword="+ encodeURI(content);
     }
 }
