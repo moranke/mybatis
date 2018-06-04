@@ -43,4 +43,14 @@
         <url-pattern>/Wechat.action</url-pattern>
     </servlet-mapping>
 
+
+    <!--intellij search-->
+<servlet>
+    <servlet-name>SearchServlet</servlet-name>
+    <servlet-class>control.SearchServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>SearchServlet</servlet-name>
+    <url-pattern>/search</url-pattern>
+</servlet-mapping>
 </web-app>

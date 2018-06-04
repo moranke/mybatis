@@ -4,6 +4,7 @@ import dao.MessageDAOMybatis;
 import dao.MessagedDAO;
 import db.DBConnect;
 import entity.Message;
+import net.sf.json.JSONArray;
 import service.MessageService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -46,5 +47,11 @@ public class MessageServiceImp implements MessageService {
         }
         messageDAOMybatis.deleteMessageBatch(idList);
         return true;
+    }
+
+    public JSONArray getContents(String keyWord){
+        List<String> contents=new ArrayList<String>();
+        contents=messageDAOMybatis.getContents(keyWord);
+        return  JSONArray.fromObject(contents);
     }
 }

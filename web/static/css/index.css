@@ -1,0 +1,22 @@
+@charset "utf-8";
+/*mouseOver*/
+.mouseOverStyle { background:#708090;  color:red;}
+
+/*mouseOut*/
+.mouseOutStyle {  background:#fffafa;  color:#000000;}
+
+/*!*click*!*/
+/*.clickStyle {  background:#708090;  color:#fffafa;}*/
+
+/*!*mouseOver*!*/
+/*.mouseOver {  background:#708090;  color:#fffafa;}*/
+
+
+/*#searchdiv*/
+#searchDiv {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -200px;
+    margin-top: -100px;
+}

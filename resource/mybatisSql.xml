@@ -49,5 +49,9 @@
         </foreach>
         )
     </delete>
+     <!--intellij search-->
+<select id="getContent" parameterType="string" resultType="String">
+    select command from message where command like #{_parameter} '%'
+</select>
 
 </mapper>
