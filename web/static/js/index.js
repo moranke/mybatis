@@ -38,14 +38,16 @@ function  setContent(contents) {
     for(var i=0;i<size;i++){
         var tbody=$("#contentTableBody");
          var textNode=contents[i];
-        tbody.append("<tr><td border='0' bgcolor='#fffafa'  onmouseover= mouseOver() onmouseout= mouseOut() onclick=click()>"+textNode+"</td></tr>");
+        tbody.append("<tr><td border='0' bgcolor='#fffafa'  onmouseover= mouseOver() onmouseout= mouseOut(i) onclick=click()>"+textNode+"</td></tr>");
     }
 }
 function mouseOver() {
-    this.className='mouseOverStyle';
+    var tr=$("#contentTableBody:nth-child(1)");
+    tr.children[1].className='mouseOverStyle';
 }
 function mouseOut() {
-    this.className='mouseOutStyle';
+    var tbody=$("#contentTableBody");
+    tbody.children[i+1].children("td").className='mouseOutStyle';
 }
 function click() {
     this.className='clickStyle';
