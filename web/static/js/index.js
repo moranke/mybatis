@@ -2,6 +2,7 @@
  * Created by lvdia on 2018/6/4.
  */
 var xmlHttp = new XMLHttpRequest();
+var tdId;
 
 function getMore() {
     var content=$("#keyWord").attr("value");
@@ -38,14 +39,16 @@ function  setContent(contents) {
     for(var i=0;i<size;i++){
         var tbody=$("#contentTableBody");
          var textNode=contents[i];
-        tbody.append("<tr><td border='0' bgcolor='#fffafa'  onmouseover= mouseOver() onmouseout= mouseOut(i) onclick=click()>"+textNode+"</td></tr>");
+        tdId=i;
+        tbody.append("<tr><td   border='0' bgcolor='#fffafa'  onmouseover= mouseOver(tdId)  onmouseout= mouseOut(tdId) onclick=click(tdId)>"+textNode+"</td></tr>");
     }
 }
-function mouseOver() {
-    var tr=$("#contentTableBody:nth-child(1)");
-    tr.children[1].className='mouseOverStyle';
+function mouseOver(tdId) {
+
+    // var td=$("#td"+i);
+    // td.className='mouseOverStyle';
 }
-function mouseOut() {
+function mouseOut(tdId) {
     var tbody=$("#contentTableBody");
     tbody.children[i+1].children("td").className='mouseOutStyle';
 }
